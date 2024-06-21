@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Name</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Company Name</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="/login/">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="about">
+        <h2>About Us</h2>
+        <div class="about">
+            <p>{{ company.description }}</p>
+            <img src="https://yastatic.net/naydex/yandex-search/1m6Ksj199/a89e8a4_2d/EMIltZ9UAc-tzbSTPSnj7By-N99d0aIRpU8ugNG5RX94lki7I04T_9OB4aO1NGWg3hU0qX0Ms-nAUmaps_jkmVKWNfnUEB6Q-YyqxzUq5u4B43TOQYumTL8Nco-XsRl0LMQu3QM2MJiksJ2HzEh_p4cXZuBiSKLSqg" alt="Company Image">
+        </div>
+        <div class="team">
+            <h1>Our Team</h1>
+            <div class="asosiy">
+            {% for person in persons %}
+                <div class="d">
+                    <img src="{{ person.image_url }}" alt="Profile Image">
+                    <h1>{{ person.ism }} {{ person.familya }}</h1>
+                    <h1>{{ person.lavozim }}</h1>
+                    <h1>{{ person.tel }}</h1>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+    </section>
+    <section id="services">
+        <h2>Our Services</h2>
+        <ul>
+            <li>Service 1</li>
+            <li>Service 2</li>
+            <li>Service 3</li>
+        </ul>
+    </section>
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Email: info@company.com</p>
+        <p>Phone: +1234567890</p>
+    </section>
+</body>
+<style>
+    .team {
+        text-align: center;
+        margin-top: 200px;
+    }
+    .about p {
+        padding: 50px;
+    }
+    .about img {
+        max-width: 100%;
+    }
+    .about {
+        display: flex;
+        width: 100%;
+        font-size: 30px;
+        align-items: center;
+    }
+    .asosiy {
+        padding: 1px 16px;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+    }
+    .asosiy .d img {
+        max-width: 100%;
+        border-radius: 5px;
+    }
+    .asosiy .d {
+        border: 2px solid black;
+        margin: 10px;
+        font-size: 10px;
+        width: 300px;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: #f0f0f0;
+    }
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    header {
+        background-color: #333;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+    }
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    nav ul li {
+        display: inline;
+        margin-right: 20px;
+    }
+    nav ul li a {
+        color: #fff;
+        text-decoration: none;
+    }
+    section {
+        padding: 100px 20px;
+        text-align: center;
+        margin: 0px 0px;
+        background-color: #f0f0f0;
+        border-radius: 5px;
+    }
+    section h2 {
+        margin-top: 0;
+    }
+</style>
+</html>

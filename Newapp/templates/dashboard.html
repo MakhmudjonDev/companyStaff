@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin-top: 100px;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 1000px;
+        }
+        .container h1, .container h2 {
+            margin-bottom: 0px;
+        }
+        .container label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .container input, .container textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            border: none;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .container button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Welcome, {{ user.username }}!</h1>
+        <h2>Company Information</h2>
+
+        <form method="post">
+            {% csrf_token %}
+            {{ company_form.as_p }}
+            <button type="submit">Save</button>
+        </form>
+        <h2>Our Team</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ person_form.as_p }}
+            <button type="submit" name="person_form">Add Person</button>
+        </form>
+        <ul>
+            {% for person in persons %}
+            <li>
+                <h3>{{ person.ism }} {{ person.familya }}</h3>
+                <p>{{ person.lavozim }}</p>
+                <p>{{ person.tel }}</p>
+                {% if person.image_url %}
+                <img src="{{ person.image_url }}" alt="Profile Image" style="max-width: 100px;">
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'logout' %}">Logout</a>
+    </div>
+</body>
+</html>

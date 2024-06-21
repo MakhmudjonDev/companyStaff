@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    </head>
+    <body>
+    <ul>
+        <li><a href="/student/home"> Home Page</a></li>
+        <li><a class="active" href="/student/delete"> Delete</a></li>
+        <li><a href="/student/add">Add </a></li>
+        <li><a href="/student/update">Update </a></li>
+     </ul>
+    <div class="h">
+        <form method="post">
+        <h1> Student Delete Page </h1>
+            {% csrf_token %}
+            <input type="text" name="id" placeholder="Enter your id ..">
+            <button type="submit"> Submit </button>
+        </form>
+    </div>
+    </body>
+<style>
+    body {
+      margin: 0;
+      padding:0;
+    }
+
+    ul {
+      list-style-type: none;
+      margin:0px;
+      padding: 0;
+      width: 20%;
+      background-color: #f1f1f1;
+      position: fixed;
+      height: 100%;
+      overflow: auto;
+    }
+
+    li a {
+      display: block;
+      color: #000;
+      padding: 8px 16px;
+      text-decoration: none;
+    }
+
+    li a.active {
+      background-color: #04AA6D;
+      color: white;
+    }
+
+    li a:hover:not(.active) {
+      background-color: #555;
+      color: white;
+    }
+    .h{
+        margin-left:25%;
+        padding:1px 16px;
+        height:1000px;
+    }
+    *{
+    box-sizing: border-box;
+}
+input, select{
+    font-size: 16px;
+}
+form{
+    width: 50%;
+    height:100%;
+    margin: auto;
+    padding: 30px;
+    font-size: 20px;
+}
+
+input[type=text], input[type=email], input[type=number], select, textarea{
+    padding: 10px;
+    width: 100%;
+    border: 2px solid gray;
+    border-radius: 5px;
+    background-color: #D0F5BE;
+}
+
+input, select, textarea, label{
+    margin-bottom: 10px;
+}
+
+input[type=submit]{
+    padding: 12px 30px;
+    border: none;
+    background-color: #333333;
+    color: #ffffff;
+    font-size: 16px;
+}
+input, select, textarea{
+    margin-bottom: 18px;
+}
+    form button{
+        padding: 12px 30px;
+        border: none;
+        background-color: #333333;
+        color: #ffffff;
+        font-size: 16px;
+        transition: .2s;
+    }
+    form button:hover{
+        box-shadow:1px 1px 20px 1px #333;
+        cursor:pointer;
+    }
+
+</style>
+</html>
